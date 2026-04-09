@@ -39,6 +39,7 @@ class NotebookApp(App):
     #viewer {
         height: 1fr;
         padding: 1 2;
+        overflow-y: auto;
     }
     #status {
         dock: bottom;
@@ -66,6 +67,8 @@ class NotebookApp(App):
         Binding("r", "reindex", "Re-index", show=True),
         Binding("c", "show_clusters", "Clusters", show=True),
         Binding("q", "quit", "Quit", show=True),
+        Binding("down", "scroll_page_down", "Page Down", show=True),
+        Binding("up", "scroll_page_up", "Page Up", show=True),
     ]
 
     PANELS = ["#note-list", "#viewer", "#link-panel"]
@@ -246,6 +249,12 @@ class NotebookApp(App):
         self.set_status(f"{len(results)} results")
 
     # --- Actions ---
+
+    def action_scroll_page_down(self) -> None:
+        self.query_one("#viewer", NoteViewer).scroll_page_down()
+
+    def action_scroll_page_up(self) -> None:
+        self.query_one("#viewer", NoteViewer).scroll_page_up()
 
     def action_focus_search(self) -> None:
         self.query_one("#search-bar", SearchBar).focus()
