@@ -83,8 +83,6 @@ def cmd_build(args):
 
 
 def main():
-    NOTES_DIR.mkdir(parents=True, exist_ok=True)
-
     parser = argparse.ArgumentParser(
         prog="notebook",
         description="Markdown note organization with semantic search, clustering, and linking.",
@@ -166,6 +164,8 @@ def main():
     p_build.add_argument("--title", default="Semantic Notebook", help="Site title (default: Semantic Notebook)")
 
     args = parser.parse_args()
+
+    NOTES_DIR.mkdir(parents=True, exist_ok=True)
 
     if args.command is None or args.command == "tui":
         cmd_tui(args)
