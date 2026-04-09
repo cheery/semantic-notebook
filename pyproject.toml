@@ -15,5 +15,5 @@ dependencies = [
 notebook = "notebook.__main__:main"
 
 [tool.setuptools]
-packages = ["notebook"]
+packages = ["notebook", "notebook.editor", "notebook.widgets", "notebook.utils"]
 
