@@ -13,3 +13,7 @@ dependencies = [
 
 [project.scripts]
 notebook = "notebook.__main__:main"
+
+[tool.setuptools]
+packages = ["notebook"]
+
