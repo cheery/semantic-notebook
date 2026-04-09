@@ -260,9 +260,13 @@ class NotebookApp(App):
     def _open_editor(self, filepath: str) -> None:
         import os
         import subprocess
-        editor = os.environ.get("EDITOR", "vim")
+        import sys
+        editor = os.environ.get("EDITOR", "")
         with self.suspend():
-            subprocess.call([editor, filepath])
+            if editor:
+                subprocess.call([editor, filepath])
+            else:
+                subprocess.call([sys.executable, "-m", "notebook.editor", filepath])
         # Reload the note after editing
         try:
             note = read_note(Path(filepath))
