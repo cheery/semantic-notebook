@@ -72,6 +72,16 @@ def cmd_edit(args):
     app.run()
 
 
+def cmd_build(args):
+    """Generate a static website from the notes."""
+    from notebook.build import build_site
+    print("Building static site...")
+    stats = build_site(title=args.title)
+    print(f"Generated {stats['pages']} pages ({stats['clusters']} topic clusters)")
+    print(f"Output: site/")
+    print(f"Preview: python -m http.server -d site 8000")
+
+
 def main():
     NOTES_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -143,6 +153,18 @@ def main():
     )
     p_edit.add_argument("file", help="Path or name of the note to edit")
 
+    p_build = sub.add_parser(
+        "build",
+        help="Generate a static website from the notes",
+        description="Builds a self-contained static website in the site/ directory. "
+        "Each note becomes an HTML page with rendered markdown. Notes are "
+        "grouped by topic cluster in the sidebar, and each page shows related "
+        "notes ranked by similarity. The output is ready to publish — drop it "
+        "on GitHub Pages, Netlify, or any static host. No JavaScript required. "
+        "Preview locally with: python -m http.server -d site 8000",
+    )
+    p_build.add_argument("--title", default="Semantic Notebook", help="Site title (default: Semantic Notebook)")
+
     args = parser.parse_args()
 
     if args.command is None or args.command == "tui":
@@ -157,6 +179,8 @@ def main():
         cmd_sync(args)
     elif args.command == "edit":
         cmd_edit(args)
+    elif args.command == "build":
+        cmd_build(args)
 
 
 if __name__ == "__main__":

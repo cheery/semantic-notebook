@@ -1,5 +1,5 @@
 [project]
-name = "notebook"
+name = "semantic-notebook"
 version = "0.1.0"
 description = "Markdown note organization with semantic search, clustering, and linking"
 requires-python = ">=3.11"
