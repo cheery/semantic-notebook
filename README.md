@@ -20,6 +20,12 @@ Everything stays local. Your notes are plain `.md` files. The embeddings run on 
 pip install chromadb sentence-transformers textual rich scikit-learn
 ```
 
+If you want to use the build -command to build a static website from your notes:
+
+```bash
+pip install markdown
+```
+
 **Start writing notes:**
 
 Drop `.md` files into the `notes/` directory, or create them with the built-in editor:
