@@ -1,9 +1,16 @@
 # Index
 
+- [Concurrency in Semantic Notebook](concurrency-in-semantic-notebook.md)
 - [Docker Basics](docker-basics.md)
 - [Git Workflow](git-workflow.md)
+- [GUI and the Model Language Problem](gui-model-language.md)
+- [Human vs Machine: Where to Direct Attention](human-vs-machine-learning.md)
 - [Introduction to Machine Learning](machine-learning-intro.md)
 - [Kubernetes Overview](kubernetes-overview.md)
 - [Neural Networks](neural-networks.md)
+- [Pipelines and Seams](pipelines-and-seams.md)
+- [POSIX and Accidental Concurrency](posix-and-accidental-concurrency.md)
 - [Python Async Programming](python-async.md)
+- [S-Path-RAG](20260410-063132.md)
+- [Semantic Notebook — Specification](semantic-notebook-specification.md)
 - [The notebook program](20260409-132032.md)

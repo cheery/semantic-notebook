@@ -9,10 +9,14 @@ python -m notebook            # launch TUI
 python -m notebook index      # index all notes into ChromaDB
 python -m notebook search "query"  # CLI semantic search
 python -m notebook clusters   # show auto-detected topic clusters
+python -m notebook sync [msg] # update index.md, log.md, re-index
+python -m notebook edit <file>    # open note in built-in editor
+python -m notebook build      # generate static website
 ```
 
 ## Project structure
 
+- `notebook/__main__.py` — entry point (argparse CLI)
 - `notebook/config.py` — paths, model name, constants
 - `notebook/store.py` — markdown file I/O, Note dataclass
 - `notebook/embeddings.py` — sentence-transformers model loading and encoding
@@ -21,7 +25,10 @@ python -m notebook clusters   # show auto-detected topic clusters
 - `notebook/clusters.py` — KMeans clustering + TF-IDF topic labels
 - `notebook/linker.py` — related note suggestions via cosine similarity
 - `notebook/app.py` — Textual TUI application
-- `notebook/widgets/` — TUI components (note_list, note_viewer, search_bar, link_panel, cluster_view)
+- `notebook/wiki.py` — wiki bookkeeping (index.md, log.md, sync)
+- `notebook/editor/` — built-in vim-like text editor (app.py, buffer.py)
+- `notebook/utils/balanced.py` — AVL tree and rope data structure
+- `notebook/widgets/` — TUI components
 - `notes/` — user markdown files (the data)
 
 ## Dependencies
