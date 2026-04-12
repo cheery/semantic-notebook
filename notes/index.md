@@ -7,6 +7,7 @@
 - [Human vs Machine: Where to Direct Attention](human-vs-machine-learning.md)
 - [Introduction to Machine Learning](machine-learning-intro.md)
 - [Kubernetes Overview](kubernetes-overview.md)
+- [Making Concurrency Explicit](making-concurrency-explicit.md)
 - [Neural Networks](neural-networks.md)
 - [Pipelines and Seams](pipelines-and-seams.md)
 - [POSIX and Accidental Concurrency](posix-and-accidental-concurrency.md)
